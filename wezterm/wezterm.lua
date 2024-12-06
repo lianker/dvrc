@@ -4,7 +4,7 @@ return {
   font = wezterm.font("JetBrains Mono"), -- Altere para a fonte que você prefere
   font_size = 12.0, -- Tamanho da fonte
   color_scheme = "AdventureTime", -- Esquema de cores (instale o que quiser)
-  default_prog = {"powershell.exe"}, -- Defina seu shell padrão
+  default_prog = {"/bin/bash"}, -- Defina seu shell padrão
   enable_tab_bar = true, -- Exibir barra de abas
   hide_tab_bar_if_only_one_tab = true, -- Esconde a barra de abas se só houver uma aba
   keys = {
