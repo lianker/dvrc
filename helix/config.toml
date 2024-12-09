@@ -1,5 +1,6 @@
 [editor]
 text-width = 80
+rulers = [80]
 
 [editor.file-picker]
 hidden = false
