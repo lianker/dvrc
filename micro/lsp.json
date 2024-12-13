@@ -1,0 +1,11 @@
+{
+  "python": {
+    "command": "pyright-langserver",
+    "args": ["--stdio"],
+    "filetypes": ["python"]
+  },
+  "markdown": {
+    "command": "marksman",
+    "filetypes": ["markdown"]
+  }
+}

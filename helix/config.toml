@@ -1,3 +1,4 @@
+theme = "bogster_light"
 [editor]
 text-width = 80
 rulers = [80]
