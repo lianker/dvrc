@@ -7,3 +7,10 @@ name="go"
 auto-format=false
 formatter={command="goimports"}
 indent = { tab-width = 2, unit="  ", use-spaces=true }
+
+[[language]]
+name = "html"
+auto-format = true
+language-servers = ["vscode-html-language-server", "emmet-ls"]
+formatter = {command= "prettier", args= ["--parser", "html"]}
+
