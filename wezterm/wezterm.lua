@@ -2,11 +2,13 @@ local wezterm = require 'wezterm'
 
 local config = {}
 
-if wezterm.target_triple == "x86_64-pc-windows-msvc" then
-  config.default_prog = {"C:/Program Files/PowerShell/7/pwsh.exe"}
-else
-  config.default_prog = {"/bin/bash"}
-end
+config.default_prog = {"nu"}
+
+-- if wezterm.target_triple == "x86_64-pc-windows-msvc" then
+--   config.default_prog = {"C:/Program Files/PowerShell/7/pwsh.exe"}
+-- else
+--   config.default_prog = {"/bin/bash"}
+-- end
 
 config.font = wezterm.font("JetBrains Mono") -- Altere para a fonte que você prefere
 config.font_size = 12.0 -- Tamanho da fonte

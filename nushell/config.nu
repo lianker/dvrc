@@ -5,9 +5,11 @@
 # Configuration to workaround a bug where a new line is added for each key 
 # pressed
 
-$env.config = {
-  shell_integration: {
-    osc133: false
+if $env.OS == "Windows_NT" {
+  $env.config = {
+    shell_integration: {
+      osc133: false
+    }  
   }  
 }
 
