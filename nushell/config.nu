@@ -11,4 +11,5 @@ $env.config = {
   }  
 }
 
+# Define Hellix as default editor
 $env.config.buffer_editor = "hx"
