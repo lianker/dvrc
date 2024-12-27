@@ -34,25 +34,25 @@ config.keys = {
   },
   -- Navegar para a esquerda
   {
-    key = "a",
+    key = "LeftArrow",
     mods = "ALT",
     action = wezterm.action.ActivatePaneDirection("Left"),
   },
   -- Navegar para a direita
   {
-    key = "d",
+    key = "RightArrow",
     mods = "ALT",
     action = wezterm.action.ActivatePaneDirection("Right"),
   },
   -- Navegar para cima
   {
-    key = "w",
+    key = "UpArrow",
     mods = "ALT",
     action = wezterm.action.ActivatePaneDirection("Up"),
   },
   -- Navegar para baixo
   {
-    key = "s",
+    key = "DownArrow",
     mods = "ALT",
     action = wezterm.action.ActivatePaneDirection("Down"),
   },
