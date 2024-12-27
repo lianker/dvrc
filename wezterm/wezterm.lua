@@ -2,17 +2,18 @@ local wezterm = require 'wezterm'
 
 local config = {}
 
-config.default_prog = {"nu"}
+-- config.default_prog = {"/home/linuxbrew/.linuxbrew/bin/nu"}
 
--- if wezterm.target_triple == "x86_64-pc-windows-msvc" then
---   config.default_prog = {"C:/Program Files/PowerShell/7/pwsh.exe"}
--- else
---   config.default_prog = {"/bin/bash"}
--- end
+if wezterm.target_triple == "x86_64-pc-windows-msvc" then
+  -- config.default_prog = {"C:/Program Files/PowerShell/7/pwsh.exe"}
+  config.default_prog = {"nu"}
+else
+  config.default_prog = {"/home/linuxbrew/.linuxbrew/bin/nu"}
+end
 
 config.font = wezterm.font("JetBrains Mono") -- Altere para a fonte que você prefere
 config.font_size = 12.0 -- Tamanho da fonte
-config.color_scheme = "Gruvbox Dark (Gogh)" -- Esquema de cores (instale o que quiser)
+-- config.color_scheme = "Gruvbox Dark (Gogh)" -- Esquema de cores (instale o que quiser)
 config.enable_tab_bar = true -- Exibir barra de abas
 config.hide_tab_bar_if_only_one_tab = true -- Esconde a barra de abas se só houver uma aba
 config.keys = {
