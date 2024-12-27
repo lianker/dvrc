@@ -3,9 +3,17 @@ theme = "jellybeans"
 [editor]
 rulers = [80]
 
+[editor.auto-save]
+focus-lost = true
+
 [editor.file-picker]
 hidden = false
 
 [keys.normal]
+"C-[" = ":w!"
 A-j = ["extend_to_line_bounds", "delete_selection", "paste_after"]
 A-k = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
+
+[keys.insert]
+"C-["= [":w!", "normal_mode"]
+"C-ret" = "open_below"
