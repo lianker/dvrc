@@ -1,12 +1,20 @@
+# ================ Python Things ==============================================
 [[language]]
 name = "python"
 language-servers = [ "pyright" ]
 
+# ================ Golang Things ==============================================
 [[language]]
 name="go"
 auto-format=false
 formatter={command="goimports"}
 indent = { tab-width = 2, unit="  ", use-spaces=true }
+
+# ================ Web Dev: Traditional Node ==================================
+[[language]]
+name = "json"
+formatter = { command = "prettier", args = [ "--parser", "json" ] }
+auto-format = true
 
 [[language]]
 name = "html"
@@ -14,3 +22,12 @@ auto-format = true
 language-servers = ["vscode-html-language-server", "emmet-ls"]
 formatter = {command= "prettier", args= ["--parser", "html"]}
 
+[language-server.emmet-ls]
+args = ["--stdio"]
+command = "emmet-ls"
+
+[[language]]
+name = "css"
+language-servers = [ "vscode-css-language-server", "emmet-ls" ]
+formatter = { command = 'prettier', args = ["--parser", "css"] }
+auto-format = true
