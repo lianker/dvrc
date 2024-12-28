@@ -1,13 +1,15 @@
 local wezterm = require 'wezterm'
 
 local config = {}
+config.disable_default_key_bindings = true
 
--- config.default_prog = {"/home/linuxbrew/.linuxbrew/bin/nu"}
+config.leader = {key = "w", mods = "ALT"}
 
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
   -- config.default_prog = {"C:/Program Files/PowerShell/7/pwsh.exe"}
   config.default_prog = {"nu"}
 else
+  -- config.default_prog = {"/usr/bin/bash"}
   config.default_prog = {"/home/linuxbrew/.linuxbrew/bin/nu"}
 end
 
@@ -33,7 +35,11 @@ config.keys = {
     mods = "ALT|SHIFT",
     action = wezterm.action.CloseCurrentPane { confirm = true }, -- Confirmação antes de fechar
   },
-  -- Navegar para a esquerda
+  {
+    key = 'z',
+    mods = 'ALT',
+    action = wezterm.action.TogglePaneZoomState,
+  },  -- Navegar para a esquerda
   {
     key = "LeftArrow",
     mods = "ALT",
@@ -57,10 +63,26 @@ config.keys = {
     mods = "ALT",
     action = wezterm.action.ActivatePaneDirection("Down"),
   },
+  -- Ajustar tamnho dos paineis
   {
-    key = 'z',
-    mods = 'ALT',
-    action = wezterm.action.TogglePaneZoomState,
+    key = "UpArrow",
+    mods = "LEADER",
+    action = wezterm.action.AdjustPaneSize {"Up", 1},
+  },
+  {
+    key = "DownArrow",
+    mods = "LEADER",
+    action = wezterm.action.AdjustPaneSize {"Down", 1},
+  },
+  {
+    key = "RightArrow",
+    mods = "LEADER",
+    action = wezterm.action.AdjustPaneSize {"Right", 1},
+  },
+  {
+    key = "LeftArrow",
+    mods = "LEADER",
+    action = wezterm.action.AdjustPaneSize {"Left", 1},
   },
 }
 config.window_padding = {
