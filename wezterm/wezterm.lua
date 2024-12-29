@@ -19,6 +19,24 @@ config.font_size = 12.0 -- Tamanho da fonte
 config.enable_tab_bar = true -- Exibir barra de abas
 config.hide_tab_bar_if_only_one_tab = true -- Esconde a barra de abas se só houver uma aba
 config.keys = {
+  -- Create a new tab in the same domain as the current pane.
+  -- This is usually what you want.
+  {
+    key = 't',
+    mods = 'CTRL|SHIFT',
+    action = wezterm.action.SpawnTab 'CurrentPaneDomain',
+  },
+  {
+    key = 'w',
+    mods = 'CTRL|SHIFT',
+    action = wezterm.action.CloseCurrentTab { confirm = true },
+  },
+  -- paste from the clipboard
+  { key = "V", mods = "CTRL", action = wezterm.action.PasteFrom "Clipboard" },
+
+  -- paste from the primary selection
+  { key = "V", mods = "CTRL", action = wezterm.action.PasteFrom "PrimarySelection" },
+   
   -- Alterar para teclas alternativas, como CTRL + ALT + D
   {
     key = "+",
