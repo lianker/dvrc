@@ -1,3 +1,7 @@
+#; Environment Vars
+$env.YAZI_FILE_ONE = "C:/Program Files/Git/usr/bin/file.exe"
+$env.EDITOR = "hx"
+
 # -- Buf Fix for this issues: -- #############################################
 # -- -> https://github.com/microsoft/terminal/issues/13710
 # -- -> https://github.com/nushell/nushell/issues/10671
@@ -15,3 +19,4 @@ if $env.OS == "Windows_NT" {
 
 # Define Hellix as default editor
 $env.config.buffer_editor = "hx"
+
