@@ -1,7 +1,3 @@
-#; Environment Vars
-$env.YAZI_FILE_ONE = "C:/Program Files/Git/usr/bin/file.exe"
-$env.EDITOR = "hx"
-
 # -- Buf Fix for this issues: -- #############################################
 # -- -> https://github.com/microsoft/terminal/issues/13710
 # -- -> https://github.com/nushell/nushell/issues/10671
@@ -9,7 +5,7 @@ $env.EDITOR = "hx"
 # Configuration to workaround a bug where a new line is added for each key 
 # pressed
 
-if $env.OS == "Windows_NT" {
+if $env.OS? == "Windows_NT" {
   $env.config = {
     shell_integration: {
       osc133: false
