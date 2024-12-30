@@ -1,10 +1,170 @@
+-- # General Setup
 local wezterm = require 'wezterm'
+local act = wezterm.action
 
-local config = {}
+local config = wezterm.config_builder()
+
+-- Disable All Preconfigs to set exaclly what I want
 config.disable_default_key_bindings = true
 
+-- Define A-w as LEADER command
 config.leader = {key = "w", mods = "ALT"}
+config.keys = {}
 
+-- Paste keybinding
+-- paste from the clipboard
+table.insert(config.keys,
+  { key = "V", mods = "CTRL", action = act.PasteFrom "Clipboard" }
+)
+
+table.insert(config.keys,
+  -- paste from the primary selection
+  { key = "V", mods = "CTRL", action = act.PasteFrom "PrimarySelection" }
+)
+
+-- # Apearence and Colors
+config.font = wezterm.font("JetBrains Mono") 
+config.font_size = 12.0
+config.color_scheme = "nord"
+
+-- # Window configurations
+config.window_padding = {
+  left = 10,
+  right = 10,
+  top = 10,
+  bottom = 10,
+}
+
+-- # Tab Configs
+config.enable_tab_bar = true
+config.hide_tab_bar_if_only_one_tab = true
+
+-- ## Tab Keybinding
+
+table.insert(config.keys, 
+  {
+    key = 't',
+    mods = 'CTRL|SHIFT',
+    action = act.SpawnTab 'CurrentPaneDomain',
+  }
+)
+
+table.insert(config.keys, 
+  {
+    key = 'w',
+    mods = 'CTRL|SHIFT',
+    action = act.CloseCurrentTab { confirm = true },
+  }
+)
+
+-- # Panels
+-- ## Panel Spliting
+
+-- Split Vertical
+table.insert(config.keys,
+  {
+    key = "+",
+    mods = "ALT|SHIFT",
+    action = act.SplitHorizontal { domain = "CurrentPaneDomain" },
+  }
+)
+
+-- Split Horizontal
+table.insert(config.keys,
+  {
+    key = "_",
+    mods = "ALT|SHIFT",
+    action = act.SplitVertical { domain = "CurrentPaneDomain" },
+  }
+)
+
+-- Close Current panel
+table.insert(config.keys,
+  {
+    key = "q", 
+    mods = "ALT|SHIFT",
+    action = act.CloseCurrentPane { confirm = true }, 
+  }
+)
+
+-- Toggle current panel zoom
+table.insert(config.keys,
+  {
+    key = 'z',
+    mods = 'ALT',
+    action = act.TogglePaneZoomState,
+  }  
+)
+
+-- ## Jump between panels
+
+-- Jump to panel left
+table.insert(config.keys, {
+    key = "LeftArrow",
+    mods = "ALT",
+    action = act.ActivatePaneDirection("Left"),
+  }
+)
+
+-- Jump to panel right
+table.insert(config.keys, {
+    key = "RightArrow",
+    mods = "ALT",
+    action = act.ActivatePaneDirection("Right"),
+  }
+)
+
+-- Jumb to panel Up
+table.insert(config.keys, {
+    key = "UpArrow",
+    mods = "ALT",
+    action = act.ActivatePaneDirection("Up"),
+  }
+)
+
+-- Jump to panel Down
+table.insert(config.keys, {
+    key = "DownArrow",
+    mods = "ALT",
+    action = act.ActivatePaneDirection("Down"),
+  }
+)
+
+
+-- ## Adjust Pane Size
+table.insert(config.keys,
+  {
+    key = "UpArrow",
+    mods = "LEADER",
+    action = act.AdjustPaneSize {"Up", 1},
+  }
+)
+
+table.insert(config.keys,
+  {
+    key = "DownArrow",
+    mods = "LEADER",
+    action = act.AdjustPaneSize {"Down", 1},
+  }
+)
+
+table.insert(config.keys,
+    {
+    key = "RightArrow",
+    mods = "LEADER",
+    action = act.AdjustPaneSize {"Right", 1},
+  }
+)
+
+table.insert(config.keys, 
+  { 
+    key = "LeftArrow", 
+    mods = "LEADER", 
+    action = act.AdjustPaneSize {"Left", 1} 
+  }
+)
+
+-- # NuSHell
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
   -- config.default_prog = {"C:/Program Files/PowerShell/7/pwsh.exe"}
   config.default_prog = {"nu"}
@@ -12,102 +172,5 @@ else
   -- config.default_prog = {"/usr/bin/bash"}
   config.default_prog = {"/home/linuxbrew/.linuxbrew/bin/nu"}
 end
-
-config.font = wezterm.font("JetBrains Mono") -- Altere para a fonte que você prefere
-config.font_size = 12.0 -- Tamanho da fonte
--- config.color_scheme = "Gruvbox Dark (Gogh)" -- Esquema de cores (instale o que quiser)
-config.enable_tab_bar = true -- Exibir barra de abas
-config.hide_tab_bar_if_only_one_tab = true -- Esconde a barra de abas se só houver uma aba
-config.keys = {
-  -- Create a new tab in the same domain as the current pane.
-  -- This is usually what you want.
-  {
-    key = 't',
-    mods = 'CTRL|SHIFT',
-    action = wezterm.action.SpawnTab 'CurrentPaneDomain',
-  },
-  {
-    key = 'w',
-    mods = 'CTRL|SHIFT',
-    action = wezterm.action.CloseCurrentTab { confirm = true },
-  },
-  -- paste from the clipboard
-  { key = "V", mods = "CTRL", action = wezterm.action.PasteFrom "Clipboard" },
-
-  -- paste from the primary selection
-  { key = "V", mods = "CTRL", action = wezterm.action.PasteFrom "PrimarySelection" },
-   
-  -- Alterar para teclas alternativas, como CTRL + ALT + D
-  {
-    key = "+",
-    mods = "ALT|SHIFT",
-    action = wezterm.action.SplitHorizontal { domain = "CurrentPaneDomain" },
-  },
-  {
-    key = "_",
-    mods = "ALT|SHIFT",
-    action = wezterm.action.SplitVertical { domain = "CurrentPaneDomain" },
-  },
-  {
-    key = "q", -- Tecla para fechar a divisão
-    mods = "ALT|SHIFT",
-    action = wezterm.action.CloseCurrentPane { confirm = true }, -- Confirmação antes de fechar
-  },
-  {
-    key = 'z',
-    mods = 'ALT',
-    action = wezterm.action.TogglePaneZoomState,
-  },  -- Navegar para a esquerda
-  {
-    key = "LeftArrow",
-    mods = "ALT",
-    action = wezterm.action.ActivatePaneDirection("Left"),
-  },
-  -- Navegar para a direita
-  {
-    key = "RightArrow",
-    mods = "ALT",
-    action = wezterm.action.ActivatePaneDirection("Right"),
-  },
-  -- Navegar para cima
-  {
-    key = "UpArrow",
-    mods = "ALT",
-    action = wezterm.action.ActivatePaneDirection("Up"),
-  },
-  -- Navegar para baixo
-  {
-    key = "DownArrow",
-    mods = "ALT",
-    action = wezterm.action.ActivatePaneDirection("Down"),
-  },
-  -- Ajustar tamnho dos paineis
-  {
-    key = "UpArrow",
-    mods = "LEADER",
-    action = wezterm.action.AdjustPaneSize {"Up", 1},
-  },
-  {
-    key = "DownArrow",
-    mods = "LEADER",
-    action = wezterm.action.AdjustPaneSize {"Down", 1},
-  },
-  {
-    key = "RightArrow",
-    mods = "LEADER",
-    action = wezterm.action.AdjustPaneSize {"Right", 1},
-  },
-  {
-    key = "LeftArrow",
-    mods = "LEADER",
-    action = wezterm.action.AdjustPaneSize {"Left", 1},
-  },
-}
-config.window_padding = {
-  left = 10,
-  right = 10,
-  top = 10,
-  bottom = 10,
-}
 
 return config
