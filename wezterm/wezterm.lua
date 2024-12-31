@@ -27,6 +27,28 @@ config.font = wezterm.font("JetBrains Mono")
 config.font_size = 12.0
 config.color_scheme = "nord"
 
+-- Keybindings to "Zoom" in and Out
+table.insert(config.keys,
+  { key = '=', mods = 'CTRL', action = wezterm.action.IncreaseFontSize }
+)
+
+table.insert(config.keys, 
+  { key = '-', mods = 'CTRL', action = wezterm.action.DecreaseFontSize }
+)
+
+table.insert(config.keys,
+  { key = '0', mods = 'CTRL', action = wezterm.action.ResetFontSize }
+)
+
+-- Reload Configurations
+table.insert(config.keys,
+  {
+    key = 'r',
+    mods = 'LEADER',
+    action = wezterm.action.ReloadConfiguration,
+  }
+)
+
 -- # Window configurations
 config.window_padding = {
   left = 10,
