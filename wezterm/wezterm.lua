@@ -25,7 +25,7 @@ table.insert(config.keys,
 -- # Apearence and Colors
 config.font = wezterm.font("JetBrains Mono") 
 config.font_size = 12.0
-config.color_scheme = "nord"
+config.color_scheme = "Gruvbox Light"
 
 -- # Window configurations
 config.window_padding = {
