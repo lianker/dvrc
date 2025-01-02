@@ -14,4 +14,4 @@ $env.GOPATH = $"($nu.home-path)/go"
 
 # -> ## Add GO to Path
 $env.Path = ($env.Path | prepend $"($env.DV_GO_PATH)/bin")
-$env.Path = ($env.Path | prepend $"($env.DV_GO_PATH)/bin")
+$env.Path = ($env.Path | prepend $"($env.GOPATH)/bin")
