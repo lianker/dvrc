@@ -25,7 +25,7 @@ table.insert(config.keys,
 -- # Apearence and Colors
 config.font = wezterm.font("JetBrains Mono") 
 config.font_size = 12.0
-config.color_scheme = "nord"
+config.color_scheme = "Gruvbox Light"
 
 -- Keybindings to "Zoom" in and Out
 table.insert(config.keys,
