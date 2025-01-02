@@ -11,7 +11,11 @@ config.disable_default_key_bindings = true
 config.leader = {key = "w", mods = "ALT"}
 config.keys = {}
 
--- Paste keybinding
+-- Copy and Paste keybindings
+-- Activate Copy mode: C-S-X
+table.insert(config.keys,
+  { key = 'X', mods = 'CTRL', action = wezterm.action.ActivateCopyMode }
+)
 -- paste from the clipboard
 table.insert(config.keys,
   { key = "V", mods = "CTRL", action = act.PasteFrom "Clipboard" }

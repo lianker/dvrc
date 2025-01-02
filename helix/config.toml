@@ -1,4 +1,4 @@
-theme = "nord"
+theme = "spacebones_light"
 
 [editor]
 rulers = [80]
