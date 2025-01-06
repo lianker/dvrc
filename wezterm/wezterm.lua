@@ -29,7 +29,7 @@ table.insert(config.keys,
 -- # Apearence and Colors
 config.font = wezterm.font("JetBrains Mono") 
 config.font_size = 12.0
-config.color_scheme = "Gruvbox Light"
+config.color_scheme = "Solarized Light (Gogh)"
 
 -- Keybindings to "Zoom" in and Out
 table.insert(config.keys,
