@@ -16,3 +16,6 @@ if $env.OS? == "Windows_NT" {
 # Define Hellix as default editor
 $env.config.buffer_editor = "hx"
 
+# TODO: Check if theme file exists before source
+source themes/solarized-light.nu
+$env.LS_COLORS = (vivid generate solarized-light | str trim)
