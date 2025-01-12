@@ -103,8 +103,9 @@ $env.NU_PLUGIN_DIRS = [
 
 # ------------------------------------- CUSTOM VARS --------------------------#
 $env.OS = "Linux"
-$env.EDITOR = "helix"
+$env.EDITOR = "hx"
 $env.DV_PATH = $"($nu.home-path)/dvlopment"
+alias cls = clear
 
 # Tools COnfigurations
 
