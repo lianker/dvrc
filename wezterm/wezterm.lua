@@ -190,6 +190,29 @@ table.insert(config.keys,
   }
 )
 
+table.insert(config.keys,
+  {
+        key = "j",
+        mods = "CTRL",
+        action = wezterm.action_callback(function(_, pane)
+            local tab = pane:tab()
+            local panes = tab:panes_with_info()
+            if #panes == 1 then
+                pane:split({
+                    direction = "Down",
+                    size = 0.2,
+                })
+            elseif not panes[1].is_zoomed then
+                panes[1].pane:activate()
+                tab:set_zoomed(true)
+            elseif panes[1].is_zoomed then
+                tab:set_zoomed(false)
+                panes[2].pane:activate()
+            end
+        end),
+    }
+)
+
 -- # NuSHell
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
   -- config.default_prog = {"C:/Program Files/PowerShell/7/pwsh.exe"}
