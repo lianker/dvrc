@@ -102,13 +102,11 @@ $env.NU_PLUGIN_DIRS = [
 # source ($nu.default-config-dir | path join 'custom.nu')
 
 # ------------------------------------- CUSTOM VARS --------------------------#
-
+$env.OS = "Linux"
 $env.EDITOR = "helix"
 $env.DV_PATH = $"($nu.home-path)/dvlopment"
 
 # Tools COnfigurations
-# -> # YAZI
-$env.YAZI_FILE_ONE = "C:/Program Files/Git/usr/bin/file.exe"
 
 # Language Configurations
 # -> # Go Lang
@@ -123,3 +121,6 @@ use std "path add"
 
 path add ($"($env.DV_GO_PATH)/bin")
 path add ($"($env.GOPATH)/bin")
+
+# Add Home Brew
+path add "/home/linuxbrew/.linuxbrew/bin"
