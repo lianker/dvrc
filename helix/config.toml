@@ -19,7 +19,9 @@ hidden = false
 "C-g" = ":w!"
 A-j = ["extend_to_line_bounds", "delete_selection", "paste_after"]
 A-k = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
+C-tab = ":buffer-previous"
 
 [keys.insert]
 "C-g" = ["normal_mode", ":w!"]
 "C-ret" = "open_below"
+C-tab = ":buffer-previous"
