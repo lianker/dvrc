@@ -20,5 +20,3 @@ $env.config.buffer_editor = "hx"
 source themes/solarized-light.nu
 $env.LS_COLORS = (vivid generate solarized-light | str trim)
 
-$env.ASDF_DIR = ($env.HOME | path join '.asdf')
- source /home/deztro/.asdf/asdf.nu

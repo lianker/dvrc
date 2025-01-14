@@ -124,3 +124,6 @@ path add ($"($env.GOPATH)/bin")
 
 # Add Home Brew
 path add "/home/linuxbrew/.linuxbrew/bin"
+
+$env.ASDF_DIR = ($env.HOME | path join '.asdf')
+ source /home/deztro/.asdf/asdf.nu
