@@ -123,6 +123,13 @@ use std "path add"
 path add ($"($env.DV_GO_PATH)/bin")
 path add ($"($env.GOPATH)/bin")
 
+
+# Elixir
+# Elixir LSP (elixir-ls)
+$env.DV_ELIXIR_LS_PATH = $"($env.DV_PATH)/lsp/elixir/elixir-ls"
+
+path add $env.DV_ELIXIR_LS_PATH
+
 # Add Home Brew
 path add "/home/linuxbrew/.linuxbrew/bin"
 
