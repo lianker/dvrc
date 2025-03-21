@@ -25,3 +25,4 @@ C-tab = ":buffer-previous"
 "C-g" = ["normal_mode", ":w!"]
 "C-ret" = "open_below"
 C-tab = ":buffer-previous"
+"C-[" = "normal_mode"

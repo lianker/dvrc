@@ -1,0 +1,15 @@
+{
+    "editor.rulers": [
+        79
+    ],
+    "workbench.colorCustomizations": {
+        "editorRuler.foreground": "#ff0000"
+    },
+    "editor.minimap.enabled": false,
+    "workbench.iconTheme": "vscode-icons",
+    "vsicons.dontShowNewVersionMessage": true,
+    "files.autoSave": "onFocusChange",
+    "workbench.colorTheme": "Solarized Light",
+    "window.zoomLevel": 1,
+    "workbench.sideBar.location": "right"
+}
