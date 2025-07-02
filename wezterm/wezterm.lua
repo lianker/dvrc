@@ -8,7 +8,7 @@ local config = wezterm.config_builder()
 config.disable_default_key_bindings = true
 
 -- Define A-w as LEADER command
-config.leader = {key = "w", mods = "ALT"}
+config.leader = {key = "w", mods = "CMD"}
 config.keys = {}
 
 -- Copy and Paste keybindings
@@ -29,7 +29,8 @@ table.insert(config.keys,
 -- # Apearence and Colors
 config.font = wezterm.font("JetBrains Mono") 
 config.font_size = 12.0
-config.color_scheme = "Solarized Light (Gogh)"
+config.color_scheme = "Darcula (base16)"
+-- config.color_scheme = "Solarized Light (Gogh)"
 
 -- Keybindings to "Zoom" in and Out
 table.insert(config.keys,
@@ -90,7 +91,7 @@ table.insert(config.keys,
 table.insert(config.keys,
   {
     key = "+",
-    mods = "ALT|SHIFT",
+    mods = "CMD|SHIFT",
     action = act.SplitHorizontal { domain = "CurrentPaneDomain" },
   }
 )
@@ -99,7 +100,7 @@ table.insert(config.keys,
 table.insert(config.keys,
   {
     key = "_",
-    mods = "ALT|SHIFT",
+    mods = "CMD|SHIFT",
     action = act.SplitVertical { domain = "CurrentPaneDomain" },
   }
 )
@@ -107,8 +108,8 @@ table.insert(config.keys,
 -- Close Current panel
 table.insert(config.keys,
   {
-    key = "q", 
-    mods = "ALT|SHIFT",
+    key = "K", 
+    mods = "CMD|SHIFT",
     action = act.CloseCurrentPane { confirm = true }, 
   }
 )
@@ -117,7 +118,7 @@ table.insert(config.keys,
 table.insert(config.keys,
   {
     key = 'z',
-    mods = 'ALT',
+    mods = 'CMD',
     action = act.TogglePaneZoomState,
   }  
 )
@@ -127,7 +128,7 @@ table.insert(config.keys,
 -- Jump to panel left
 table.insert(config.keys, {
     key = "LeftArrow",
-    mods = "ALT",
+    mods = "CMD",
     action = act.ActivatePaneDirection("Left"),
   }
 )
@@ -135,7 +136,7 @@ table.insert(config.keys, {
 -- Jump to panel right
 table.insert(config.keys, {
     key = "RightArrow",
-    mods = "ALT",
+    mods = "CMD",
     action = act.ActivatePaneDirection("Right"),
   }
 )
@@ -143,7 +144,7 @@ table.insert(config.keys, {
 -- Jumb to panel Up
 table.insert(config.keys, {
     key = "UpArrow",
-    mods = "ALT",
+    mods = "CMD",
     action = act.ActivatePaneDirection("Up"),
   }
 )
@@ -151,7 +152,7 @@ table.insert(config.keys, {
 -- Jump to panel Down
 table.insert(config.keys, {
     key = "DownArrow",
-    mods = "ALT",
+    mods = "CMD",
     action = act.ActivatePaneDirection("Down"),
   }
 )
@@ -219,7 +220,7 @@ if wezterm.target_triple == "x86_64-pc-windows-msvc" then
   config.default_prog = {"nu"}
 else
   -- config.default_prog = {"/usr/bin/bash"}
-  config.default_prog = {"/home/linuxbrew/.linuxbrew/bin/nu"}
+  -- config.default_prog = {"/home/linuxbrew/.linuxbrew/bin/nu"}
 end
 
 return config
