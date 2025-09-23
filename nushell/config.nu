@@ -17,6 +17,6 @@ if $env.OS? == "Windows_NT" {
 $env.config.buffer_editor = "hx"
 
 # TODO: Check if theme file exists before source
-source themes/solarized-light.nu
-$env.LS_COLORS = (vivid generate solarized-light | str trim)
+# source themes/solarized-light.nu
+$env.LS_COLORS = (vivid generate tokyonight-night | str trim)
 
