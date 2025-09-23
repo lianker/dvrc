@@ -41,6 +41,22 @@ Reload configuration
 source $nu.config-path
 ```
 
+Remove symlink
+```shell
+rm $"($nu.default-config-dir)/config.nu"
+```
+
+Creating a function to create symlink and add in `<nushell-dir>/modules/symlink-mod.nu`
+```shell
+export def symlink [source: string, target: string] {
+  if ($nu.os-info.name | str contains "windows") {
+        ^powershell -Command $"New-Item -ItemType SymbolicLink -Path '($target)' -Target '($source)'"
+    } else {
+        ^ln -s $source $target
+    }
+}
+```
+
 ## Utils
 Check installed apps `Homebrew`
 
@@ -51,15 +67,15 @@ brew list
 Check nushell config dir
 ```shell
 $nu.default-config-dir
-````
+```
 
 ## Tasks
-
 - [ ] Install Package
 - [ ] Install Nushell
 - [ ] Install WezTerm
 - [ ] Create Symlinks
+- [ ] Change wezterm shortcuts to acept CMD and ALT
 
-REFERENCES
+# REFERENCES
 
 - https://mise.jdx.dev/getting-started.html

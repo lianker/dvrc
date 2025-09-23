@@ -27,8 +27,8 @@ table.insert(config.keys,
 )
 
 -- # Apearence and Colors
--- config.font = wezterm.font("JetBrains Mono") 
-config.font = wezterm.font("Courier Prime Code") 
+config.font = wezterm.font("JetBrains Mono") 
+-- config.font = wezterm.font("Courier Prime Code") 
 config.font_size = 12.0
 config.color_scheme = "tokyonight"
 -- config.color_scheme = "Solarized Light (Gogh)"
