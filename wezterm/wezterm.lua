@@ -4,11 +4,16 @@ local act = wezterm.action
 
 local config = wezterm.config_builder()
 
+-- Use CMD on macOS, ALT elsewhere
+local is_macos = (wezterm.target_triple or ""):find("darwin") ~= nil
+local KALT = is_macos and "CMD" or "ALT"
+local KALTSHIFT = KALT .. "|SHIFT"
+
 -- Disable All Preconfigs to set exaclly what I want
 config.disable_default_key_bindings = true
 
 -- Define A-w as LEADER command
-config.leader = {key = "w", mods = "CMD"}
+config.leader = {key = "w", mods = KALT}
 config.keys = {}
 
 -- Copy and Paste keybindings
@@ -92,7 +97,7 @@ table.insert(config.keys,
 table.insert(config.keys,
   {
     key = "+",
-    mods = "CMD|SHIFT",
+    mods = KALTSHIFT,
     action = act.SplitHorizontal { domain = "CurrentPaneDomain" },
   }
 )
@@ -101,7 +106,7 @@ table.insert(config.keys,
 table.insert(config.keys,
   {
     key = "_",
-    mods = "CMD|SHIFT",
+    mods = KALTSHIFT,
     action = act.SplitVertical { domain = "CurrentPaneDomain" },
   }
 )
@@ -110,7 +115,7 @@ table.insert(config.keys,
 table.insert(config.keys,
   {
     key = "K", 
-    mods = "CMD|SHIFT",
+    mods = KALTSHIFT,
     action = act.CloseCurrentPane { confirm = true }, 
   }
 )
@@ -119,7 +124,7 @@ table.insert(config.keys,
 table.insert(config.keys,
   {
     key = 'z',
-    mods = 'CMD',
+    mods = KALT,
     action = act.TogglePaneZoomState,
   }  
 )
@@ -129,7 +134,7 @@ table.insert(config.keys,
 -- Jump to panel left
 table.insert(config.keys, {
     key = "LeftArrow",
-    mods = "CMD",
+    mods = KALT,
     action = act.ActivatePaneDirection("Left"),
   }
 )
@@ -137,7 +142,7 @@ table.insert(config.keys, {
 -- Jump to panel right
 table.insert(config.keys, {
     key = "RightArrow",
-    mods = "CMD",
+    mods = KALT,
     action = act.ActivatePaneDirection("Right"),
   }
 )
@@ -145,7 +150,7 @@ table.insert(config.keys, {
 -- Jumb to panel Up
 table.insert(config.keys, {
     key = "UpArrow",
-    mods = "CMD",
+    mods = KALT,
     action = act.ActivatePaneDirection("Up"),
   }
 )
@@ -153,7 +158,7 @@ table.insert(config.keys, {
 -- Jump to panel Down
 table.insert(config.keys, {
     key = "DownArrow",
-    mods = "CMD",
+    mods = KALT,
     action = act.ActivatePaneDirection("Down"),
   }
 )
