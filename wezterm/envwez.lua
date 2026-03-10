@@ -5,7 +5,13 @@ local wezterm = require 'wezterm'
 local config = wezterm.config_builder()
 
 -- This is where you actually apply your config choices.
+config.keys = {
+  -- CTRL-SHIFT-l activates the debug overlay
+  { key = 'L', mods = 'CTRL', action = wezterm.action.ShowDebugOverlay },
+}
 
+local homedir = os.getenv("HOME")
+wezterm.log_info("DIR==" .. homedir)
 -- For example, changing the initial geometry for new windows:
 config.initial_cols = 120
 config.initial_rows = 28
