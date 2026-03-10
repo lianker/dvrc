@@ -1,5 +1,6 @@
 -- # General Setup
 local wezterm = require 'wezterm'
+local os = require 'os'
 local act = wezterm.action
 
 local config = wezterm.config_builder()
@@ -16,6 +17,19 @@ config.disable_default_key_bindings = true
 config.leader = {key = "w", mods = KALT}
 config.keys = {}
 
+table.insert(config.keys, 
+    { key = 'I', mods = 'CTRL|SHIFT', action = wezterm.action_callback(function(win, pane)
+    -- https://github.com/wezterm/wezterm/issues/4429
+    local overrides = win:get_config_overrides() or {}
+    if not overrides.color_scheme then
+      overrides.color_scheme = "Solarized Dark (Gogh)"
+    else
+      overrides.color_scheme = nil
+    end
+    -- pane:send_text('Hello: ' .. theme)
+    win:set_config_overrides(overrides)
+  end),}
+)
 -- Copy and Paste keybindings
 -- Activate Copy mode: C-S-X
 table.insert(config.keys,
@@ -35,8 +49,8 @@ table.insert(config.keys,
 config.font = wezterm.font("JetBrains Mono") 
 -- config.font = wezterm.font("Courier Prime Code") 
 config.font_size = 12.0
-config.color_scheme = "tokyonight"
--- config.color_scheme = "Solarized Light (Gogh)"
+-- config.color_scheme = homedir
+config.color_scheme = "Solarized Light (Gogh)"
 
 -- Keybindings to "Zoom" in and Out
 table.insert(config.keys,

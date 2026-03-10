@@ -11,6 +11,11 @@ formatter={command="goimports"}
 indent = { tab-width = 2, unit="  ", use-spaces=true }
 
 # ================ Web Dev: Traditional Node ==================================
+# MAC
+#   - brew install vscode-langservers-extracted
+#   - npm install -g prettier
+#   - npm install -g emmet-ls
+# REF: https://www.canofworms.com/technology/2025-08-18-helix-language-support/#language-server-4
 [[language]]
 name = "json"
 formatter = { command = "prettier", args = [ "--parser", "json" ] }
@@ -31,3 +36,18 @@ name = "css"
 language-servers = [ "vscode-css-language-server", "emmet-ls" ]
 formatter = { command = 'prettier', args = ["--parser", "css"] }
 auto-format = true
+
+# =============== Kotlin ==============================================
+[language-server.kotlin-lsp]
+command = "kotlin-language-server"
+args = ["--stdio"]
+
+
+[[language]]
+name = "kotlin"
+scope = "source.kotlin"
+injection-regex = "kotlin"
+file-types = ["kt", "kts"]
+shebangs = ["kotlin"]
+language-servers = ["kotlin-lsp"]
+roots = ["settings.gradle", "settings.gradle.kts", "build.gradle", "build.gradle.kts", "pom.xml"]

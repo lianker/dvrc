@@ -3,6 +3,7 @@ theme = "solarized_light"
 [editor]
 rulers = [80]
 
+
 [editor.auto-save]
 focus-lost = true
 

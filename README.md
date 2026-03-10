@@ -1,5 +1,4 @@
 # My Dotfiles
-
 It's recommended first install package mangers to facilitate app installation
 
 ## Package Manager
@@ -13,12 +12,10 @@ It's recommended first install package mangers to facilitate app installation
 - Vivid
 
 ## Installation
-
 First install package manager and after Nusheall and Wezterm, with nushell it's
 possible to create symlinks to move configurations to right folders. 
 
 ### Nushell
-
 Erase default `config.nu` and `env.nu`, after create symlink from dvrc.
 
 ```shell
