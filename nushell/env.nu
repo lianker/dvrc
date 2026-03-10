@@ -24,3 +24,11 @@ $env.Path = ($env.Path | prepend $"($env.GOPATH)/bin")
 $env.DV_ELIXIR_LS_PATH = $"($env.DV_PATH)/lsp/elixir/elixir-ls/rel"
 
 path add $env.DV_ELIXIR_LS_PATH
+
+# Gradle
+$env.GRADLE_PATH = $"($env.DV_PATH)/apps/gradle/gradle-9.3.0/bin"
+path add $env.GRADLE_PATH
+
+# JAVA
+$env.JAVA_HOME = $"($env.DV_PATH)/apps/openjdk/jdk-21.0.2"
+path add $"($env.JAVA_HOME)/bin"

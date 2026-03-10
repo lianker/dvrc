@@ -20,6 +20,10 @@ function y {
 }
 
 $env:DV_PATH = "$HOME\dvlopment"
+$env:JAVA_VERSION = "jdk-21.0.2"
+$env:JAVA_HOME = "$env:DV_PATH\apps\openjdk\$env:JAVA_VERSION"
+$env:KOTLIN_VERSION = "kotlinc-2.3.0"
+$env:KOTLIN_HOME = "$env:DV_PATH\apps\kotlin\$env:KOTLIN_VERSION"
 $env:DV_GO_VERSION = "go1.23"
 $env:DV_GO_PATH = "$env:DV_PATH\apps\golang\$env:DV_GO_VERSION"
 $env:GOPATH="$HOME\go"
