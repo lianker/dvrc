@@ -38,10 +38,12 @@ formatter = { command = 'prettier', args = ["--parser", "css"] }
 auto-format = true
 
 # =============== Kotlin ==============================================
+# [language-server.kotlin-lsp]
+# command = "kotlin-lsp"
+
 [language-server.kotlin-lsp]
 command = "kotlin-language-server"
-args = ["--stdio"]
-
+# args = ["--stdio"]
 
 [[language]]
 name = "kotlin"
