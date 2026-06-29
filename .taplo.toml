@@ -1,0 +1,7 @@
+# .taplo.toml na raiz do projeto
+[formatting]
+align_entries = true
+allowed_blank_lines = 1
+indent_string = "    " # 4 espaços
+reorder_keys = true
+column_width = 80

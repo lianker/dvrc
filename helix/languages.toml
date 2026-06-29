@@ -1,14 +1,14 @@
 # ================ Python Things ==============================================
 [[language]]
-name = "python"
-language-servers = [ "pyright" ]
+language-servers = ["pyright"]
+name             = "python"
 
 # ================ Golang Things ==============================================
 [[language]]
-name="go"
-auto-format=false
-formatter={command="goimports"}
-indent = { tab-width = 2, unit="  ", use-spaces=true }
+auto-format = false
+formatter   = { command = "goimports" }
+indent      = { tab-width = 2, unit = "  ", use-spaces = true }
+name        = "go"
 
 # ================ Web Dev: Traditional Node ==================================
 # MAC
@@ -17,37 +17,70 @@ indent = { tab-width = 2, unit="  ", use-spaces=true }
 #   - npm install -g emmet-ls
 # REF: https://www.canofworms.com/technology/2025-08-18-helix-language-support/#language-server-4
 [[language]]
-name = "json"
-formatter = { command = "prettier", args = [ "--parser", "json" ] }
 auto-format = true
+formatter   = { command = "prettier", args = ["--parser", "json"] }
+name        = "json"
 
 [[language]]
-name = "html"
-auto-format = true
+auto-format      = true
+file-types       = ["html", "htm", "njk"]
+formatter        = { command = "prettier", args = ["--parser", "html"] }
 language-servers = ["vscode-html-language-server", "emmet-ls"]
-formatter = {command= "prettier", args= ["--parser", "html"]}
+name             = "html"
 
 [language-server.emmet-ls]
-args = ["--stdio"]
+args    = ["--stdio"]
 command = "emmet-ls"
 
 [[language]]
-name = "css"
-language-servers = [ "vscode-css-language-server", "emmet-ls" ]
-formatter = { command = 'prettier', args = ["--parser", "css"] }
-auto-format = true
+auto-format      = true
+formatter        = { command = 'prettier', args = ["--parser", "css"] }
+language-servers = ["vscode-css-language-server", "emmet-ls"]
+name             = "css"
 
 # =============== Kotlin ==============================================
 [language-server.kotlin-lsp]
+args    = ["--stdio"]
 command = "kotlin-language-server"
-args = ["--stdio"]
-
 
 [[language]]
-name = "kotlin"
-scope = "source.kotlin"
-injection-regex = "kotlin"
 file-types = ["kt", "kts"]
-shebangs = ["kotlin"]
+injection-regex = "kotlin"
 language-servers = ["kotlin-lsp"]
-roots = ["settings.gradle", "settings.gradle.kts", "build.gradle", "build.gradle.kts", "pom.xml"]
+name = "kotlin"
+roots = [
+    "settings.gradle",
+    "settings.gradle.kts",
+    "build.gradle",
+    "build.gradle.kts",
+    "pom.xml",
+]
+scope = "source.kotlin"
+shebangs = ["kotlin"]
+
+[[language]]
+auto-format = true
+file-types  = ["md"]
+formatter   = { command = "prettier", args = ["--parser", "markdown"] }
+name        = "markdown"
+
+# ======== TOML ==============================================================
+[[language]]
+file-types      = ["toml", "pdm.lock", "poetry.lock", "Cargo.lock", "uv.lock"]
+injection-regex = "toml"
+name            = "toml"
+scope           = "source.toml"
+# Deixe o Helix encontrar a raiz automaticamente ou defina apenas se necessário
+auto-format = true
+language-servers = ["taplo"]
+roots = [
+    ".git",
+    ".taplo.toml",
+    "pyproject.toml",
+    "package.json",
+    "build.gradle.kts",
+]
+# Opcional: força o Helix a usar o comando de formatação do LSP
+[language.formatter]
+args    = ["fmt", "-"]
+command = "taplo"
