@@ -22,7 +22,7 @@ table.insert(config.keys,
     -- https://github.com/wezterm/wezterm/issues/4429
     local overrides = win:get_config_overrides() or {}
     if not overrides.color_scheme then
-      overrides.color_scheme =  'flexoki-dark'
+      overrides.color_scheme =  'Modus-Operandi-Tinted'
     else
       overrides.color_scheme = nil
     end
@@ -50,7 +50,7 @@ config.font = wezterm.font("JetBrains Mono")
 -- config.font = wezterm.font("Courier Prime Code") 
 config.font_size = 12.0
 -- config.color_scheme = homedir
-config.color_scheme = "flexoki-light"
+config.color_scheme = "Modus-Vivendi-Tinted"
 
 -- Keybindings to "Zoom" in and Out
 table.insert(config.keys,
