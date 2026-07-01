@@ -3,27 +3,31 @@ theme = "flexoki_light"
 [editor]
 rulers = [80]
 
-
 [editor.auto-save]
 focus-lost = true
 
 [editor.soft-wrap]
-enable = true
-max-wrap = 25 # increase value to reduce forced mid-word wrapping
+enable            = true
 max-indent-retain = 0
-wrap-indicator = ""  # set wrap-indicator to "" to hide it
+max-wrap          = 25   # increase value to reduce forced mid-word wrapping
+wrap-indicator    = ""   # set wrap-indicator to "" to hide it
 
 [editor.file-picker]
 hidden = false
 
 [keys.normal]
-"C-g" = ":w!"
 A-j = ["extend_to_line_bounds", "delete_selection", "paste_after"]
-A-k = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
+A-k = [
+    "extend_to_line_bounds",
+    "delete_selection",
+    "move_line_up",
+    "paste_before",
+]
+"C-g" = ":w!"
 C-tab = ":buffer-previous"
 
 [keys.insert]
-"C-g" = ["normal_mode", ":w!"]
+"C-["   = "normal_mode"
+"C-g"   = ["normal_mode", ":w!"]
 "C-ret" = "open_below"
-C-tab = ":buffer-previous"
-"C-[" = "normal_mode"
+C-tab   = ":buffer-previous"
