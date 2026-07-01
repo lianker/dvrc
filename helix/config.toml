@@ -1,4 +1,4 @@
-theme = "flexoki_light"
+theme = "default"
 
 [editor]
 rulers = [80]
