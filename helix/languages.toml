@@ -38,6 +38,11 @@ formatter        = { command = 'prettier', args = ["--parser", "css"] }
 language-servers = ["vscode-css-language-server", "emmet-ls"]
 name             = "css"
 
+[[language]]
+auto-format = true
+file-types  = ["md"]
+formatter   = { command = "prettier", args = ["--parser", "markdown"] }
+name        = "markdown"
 # =============== Kotlin ==============================================
 [language-server.kotlin-lsp]
 args    = ["--stdio"]
@@ -58,29 +63,12 @@ roots = [
 scope = "source.kotlin"
 shebangs = ["kotlin"]
 
-[[language]]
-auto-format = true
-file-types  = ["md"]
-formatter   = { command = "prettier", args = ["--parser", "markdown"] }
-name        = "markdown"
-
 # ======== TOML ==============================================================
+# brew install taplo
+# create .taplo.toml on root with configs
 [[language]]
-file-types      = ["toml", "pdm.lock", "poetry.lock", "Cargo.lock", "uv.lock"]
-injection-regex = "toml"
-name            = "toml"
-scope           = "source.toml"
-# Deixe o Helix encontrar a raiz automaticamente ou defina apenas se necessário
-auto-format = true
+auto-format      = true
+formatter        = { command = "taplo", args = ["fmt", "-"] }
 language-servers = ["taplo"]
-roots = [
-    ".git",
-    ".taplo.toml",
-    "pyproject.toml",
-    "package.json",
-    "build.gradle.kts",
-]
-# Opcional: força o Helix a usar o comando de formatação do LSP
-[language.formatter]
-args    = ["fmt", "-"]
-command = "taplo"
+name             = "toml"
+roots            = ["."]
