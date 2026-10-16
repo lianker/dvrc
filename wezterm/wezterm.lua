@@ -11,7 +11,7 @@ local KALT = is_macos and "CMD" or "ALT"
 local KALTSHIFT = KALT .. "|SHIFT"
 
 -- Disable All Preconfigs to set exaclly what I want
-config.disable_default_key_bindings = true
+-- config.disable_default_key_bindings = true
 
 -- Define A-w as LEADER command
 config.leader = {key = "w", mods = KALT}
@@ -22,7 +22,7 @@ table.insert(config.keys,
     -- https://github.com/wezterm/wezterm/issues/4429
     local overrides = win:get_config_overrides() or {}
     if not overrides.color_scheme then
-      overrides.color_scheme =  'Fairyfloss'
+      overrides.color_scheme =  'catppuccin-frappe'
     else
       overrides.color_scheme = nil
     end
@@ -46,11 +46,11 @@ table.insert(config.keys,
 )
 
 -- # Apearence and Colors
-config.font = wezterm.font("JetBrains Mono") 
+-- config.font = wezterm.font("JetBrains Mono") 
 -- config.font = wezterm.font("Courier Prime Code") 
-config.font_size = 12.0
+config.font_size = 14.0
 -- config.color_scheme = homedir
-config.color_scheme = "rose-pine-dawn"
+config.color_scheme = "catppuccin-latte"
 
 -- Keybindings to "Zoom" in and Out
 table.insert(config.keys,
