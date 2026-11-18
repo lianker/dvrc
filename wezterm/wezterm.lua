@@ -235,9 +235,23 @@ table.insert(config.keys,
 )
 
 -- # NuSHell
-if wezterm.target_triple == "x86_64-pc-windows-msvc" then
+if wezterm.target_triple:find("windows") then
   -- config.default_prog = {"C:/Program Files/PowerShell/7/pwsh.exe"}
   config.default_prog = {"nu"}
+elseif wezterm.target_triple:find("linux") then
+  config.xcursor_theme = "Adwaita" 
+  config.xcursor_size = 24
+
+  config.window_frame = {
+    border_left_width = "2px",
+    border_right_width = "2px",
+    border_bottom_height = "2px",
+    border_top_height = "2px",
+    border_left_color = "#444444",
+    border_right_color = "#444444",
+    border_top_color = "#444444",
+    border_bottom_color = "#444444"
+  }
 else
   -- config.default_prog = {"/usr/bin/bash"}
   -- config.default_prog = {"/home/linuxbrew/.linuxbrew/bin/nu"}
